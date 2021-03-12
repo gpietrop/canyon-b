@@ -58,7 +58,13 @@ def get_data_target(element, name_column_element):
     target = torch.from_numpy(out_d)
     data = data.float()
     target = target.float()
-    return data, target
+
+    data_validation = torch.from_numpy(in_v)
+    target_validation = torch.from_numpy(out_v)
+    data_validation = data_validation.float()
+    target_validation = target_validation.float()
+
+    return data, target, data_validation, target_validation
 
 
 def preparation_dataset(data):
@@ -86,9 +92,15 @@ def norm_fun_target(target):
 
 
 def preparation_function(element, name_column_element):
-    data, target = get_data_target(element, name_column_element)
-    data = preparation_dataset(data)
-    data, mean_data, std_data = norm_fun_data(data)
-    target, mean_target, std_target = norm_fun_target(target)
+    data, target, data_validation, target_validation = get_data_target(element, name_column_element)
 
-    return data, target
+    data = preparation_dataset(data)
+    data_validation = preparation_dataset(data_validation)
+
+    data, mean_data, std_data = norm_fun_data(data)
+    data_validation, mean_data_validation, std_data_validation = norm_fun_data(data_validation)
+
+    target, mean_target, std_target = norm_fun_target(target)
+    target_validation, mean_target_validation, std_target_validation = norm_fun_target(target_validation)
+
+    return data, target, data_validation, target_validation

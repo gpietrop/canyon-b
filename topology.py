@@ -4,7 +4,7 @@ An operation of selection of how many topology must be consider is performed her
 """
 
 i = 8  # input number
-best_topo_all = [[i, 31, 23, 1], [i, 20, 8, 1], [i, 18, 13, 1], [i, 35, 21, 1], [i, 35, 9, 1], [i, 36, 21, 1],
+best_topo_all = [[i, 31, 23, 1], [i, 20, 8, 1], [i, 18, 13, 1] , [i, 35, 21, 1], [i, 35, 9, 1], [i, 36, 21, 1],
                  [i, 39, 26, 1], [i, 44, 27, 1], [i, 47, 21, 1], [i, 47, 29, 1]]
 
 
